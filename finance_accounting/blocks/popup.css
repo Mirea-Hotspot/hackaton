@@ -174,3 +174,49 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked + .switch {
     background-image: url('../images/income_button.svg');
 }
+
+
+.popup__content_edit_profile {
+    width: 900px;
+    height: 500px;
+}
+
+.popup__edit-profile-data {
+    display: grid;
+    grid-template-areas:
+    "form__user_name form__current_password"
+    "form__email form__new_password"
+    ". form__confirm_password";
+    margin: 35px auto 40px;
+}
+
+.form-user_name {
+    grid-area: form__user_name;
+    margin-left: auto;
+    margin-right: 75px;
+    margin-bottom: 25px;
+}
+
+.form-email {
+    grid-area: form__email;
+    margin-left: auto;
+    margin-right: 75px;
+}
+
+.form-current_password {
+    grid-area: form__current_password;
+    margin-right: auto;
+    margin-bottom: 25px;
+}
+
+.form-new_password {
+    grid-area: form__new_password;
+    margin-right: auto;
+    margin-bottom: 25px;
+}
+
+.form-confirm_password {
+    grid-area: form__confirm_password;
+    margin-right: auto;
+    margin-bottom: 25px;
+}
