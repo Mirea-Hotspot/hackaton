@@ -33,6 +33,29 @@ function resetFormFields() {
   placeInput.value = '';
 }
 
+const categories = { 
+  fastfood: { 
+    icon: "", 
+    color: "#3DBE29", 
+    rus: "Фастфуд", 
+  }, 
+  clothes_shoes: { 
+    icon: "", 
+    color: "#5B9BF3", 
+    rus: "Одежда и обувь", 
+  }, 
+  restaurant: { 
+    icon: "", 
+    color: "#FF3E4D", 
+    rus: "Рестораны", 
+  }, 
+  clothes_shoes: { 
+    icon: "", 
+    color: "#98d031", 
+    rus: "Другое", 
+  }, 
+};
+
 function handleOpenPopup() {
   resetFormFields();
   popup.classList.add('popup_opened');
