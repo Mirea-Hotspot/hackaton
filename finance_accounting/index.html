@@ -71,8 +71,14 @@
 					<h2 class="new-transaction-data__title">Сумма</h2>
 
 					<div class="form-summ__choose">
-						<button type="button" name="income" class="form-summ__choose-button"></button>
-						<button type="button" name="expense" class="form-summ__choose-button"></button>
+						<!-- <button type="button" id="income-btn" name="income" 
+							class="form-summ__choose-button form-summ__choose-button_selected"></button>
+						<button type="button" id="expense-btn" name="expense" 
+							class="form-summ__choose-button"></button> -->
+						<div class="image-switch">
+							<input type="checkbox" id="type-checkbox">
+							<label for="type-checkbox" class="switch"></label>
+						</div>
 					</div>
 
 					<input type="number" step="100" name="transaction-summ" id="ammount-of-money" placeholder="100 &#x20bd;" class="form__item form__item-summ">

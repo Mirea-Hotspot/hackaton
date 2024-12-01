@@ -104,8 +104,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Обработчик для кнопки добавления новой транзакции
   document.querySelector('.popup_close button[name="add"]').addEventListener('click', function () {
+      const typeBtn = document.querySelector('#type-checkbox');
+      const type = typeBtn.checked ? 'income' : 'expense';
       const newTransaction = {
-          type: document.querySelector('.form-summ__choose-button').getAttribute('name'),
+          type: type,
           amount: parseFloat(document.querySelector('.form__item-summ').value),
           date: document.querySelector('.form__item-date').value,
           category: document.querySelector('.form__item-category').value,

@@ -145,3 +145,31 @@
 .popup_close__buton[name="add"] {
     background-color: #C6F3C0;
 }
+
+/* Кнопки выбора типа транзакции */
+
+.image-switch {
+    position: relative;
+    text-align: center;
+}
+  
+.switch {
+    display: block;
+    width: 28px;
+    height: 28px;
+    background-image: url('../images/expense_button.svg'); /* Укажите путь к первой картинке */
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-image 0.3s ease;
+}
+  
+input[type="checkbox"] {
+    display: none;
+}
+  
+input[type="checkbox"]:checked + .switch {
+    background-image: url('../images/income_button.svg');
+}
