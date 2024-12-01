@@ -233,3 +233,7 @@ body, div, h1, h2, h3, p, input {
 .plug {
 	width: 24px;
 }
+
+.note_id {
+    display: none;
+}

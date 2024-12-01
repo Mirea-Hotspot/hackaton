@@ -66,8 +66,41 @@ function handleSubmitSendNote(evt) {
  // Функция для получения всех транзакций
 
 document.addEventListener('DOMContentLoaded', function () {
-  const userId = user.id; // Замените на реальный userId
+  const userId = user.id;
 
+  
+
+  async function updateUser(userId, updatedData) {
+    const response = await fetch(`/api/change_user/${userId}/`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedData)
+    });
+    const result = await response.json();
+}
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! функция которая получает новые данные 
+//function updatedDataUsr{};
+
+updateUser(userId, updatedDataUsr);
+
+
+async function editTransaction(userId, transactionId, updatedData) {
+  const apiEndpoint = `/api/transactions/${userId}/${transactionId}/`; // Укажите правильный URL вашего API
+  
+      const response = await fetch(apiEndpoint, {
+          method: 'PUT',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(updatedData) // Преобразуем объект данных в JSON
+      });
+      const result = await response.json();
+}
+
+// Функция которая примет новые данные
+//function updatedData {}; 
 
 
   // Функция для получения и обновления транзакций
@@ -78,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (response.ok) {
             data = await response.json();
         }
-
+        
         // Обновление интерфейса
         updateTransactionInfo(data);
         updateTransactionHistory(data);
@@ -98,6 +131,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
+  
+
 
   function updateTransactionHistory(data) {
     const historyContainer = document.querySelector('.history_note__fieldset');
@@ -107,6 +142,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const template = document.getElementById('note-template').content.cloneNode(true);
         template.querySelector('.note_title').textContent = transaction.description;
         template.querySelector('.note_cost').textContent = `${transaction.amount} ₽`;
+        template.querySelector('.note_id').textContent = transaction.id;
+        //Навешиваем кнопку дать баттон а баттону передать эту функцию editTransaction(userId, transactionId, updatedData);
         historyContainer.appendChild(template);
     });
 
