@@ -33,7 +33,7 @@
 .profile__username {
     margin: 30px 29px 7px 30px;
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 500;
     color: #fff;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .profile_email__text {
-    font-size: 16px;
+    font-size: 12px;
     color: #b4b4b4;
     /* Remove height and padding-bottom to prevent misalignment */
 }
