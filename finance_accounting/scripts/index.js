@@ -24,9 +24,18 @@ const commentInput = popup.querySelector('.form__item-note');
 const placeInput = popup.querySelector('.form__item-place');
 const typyInput = popup.querySelector('form-summ__choose-button');
 
-function handleOpenPopup () {
-  popup.classList.remove('popup_closed');
+function resetFormFields() {
+  sumInput.value = '';
+  dateInput.value = ''
+  categoryInout.value = '';
+  commentInput.value = '';
+  placeInput.value = '';
+}
+
+function handleOpenPopup() {
+  resetFormFields();
   popup.classList.add('popup_opened');
+  popup.classList.remove('popup_closed');
 }
 
 function handleClosePopup () {
@@ -61,21 +70,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+  // Функция для получения и обновления транзакций
   async function fetchTransactions(userId) {
-    const response = await fetch(`/api/transactions/${userId}/`);
-    let data = [];
-    if (response.ok) {
-      data = await response.json();
+    try {
+        const response = await fetch(`/api/transactions/${userId}/`);
+        let data = [];
+        if (response.ok) {
+            data = await response.json();
+        }
+
+        // Обновление интерфейса
+        updateTransactionInfo(data);
+        updateTransactionHistory(data);
+    } catch (error) {
+        console.error("Ошибка при загрузке транзакций:", error);
     }
-    updateTransactionInfo(data);
-    updateTransactionHistory(data);
   }
 
 
   function updateTransactionInfo(data) {
     console.log(data);
     const income = data.filter(transaction => transaction.type === 'income').reduce((sum, transaction) => sum + transaction.amount, 0);
-   const expense = data.filter(transaction => transaction.type === 'expense').reduce((sum, transaction) => sum + transaction.amount, 0);
+    const expense = data.filter(transaction => transaction.type === 'expense').reduce((sum, transaction) => sum + transaction.amount, 0);
   
     document.querySelector('.income').innerHTML = `${income} ₽<br>Доходы за месяц`;
     document.querySelector('.expenses').innerHTML = `${expense} ₽<br>Расходы за месяц`;
@@ -86,15 +102,18 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateTransactionHistory(data) {
     const historyContainer = document.querySelector('.history_note__fieldset');
     historyContainer.innerHTML = ''; // Очищаем старую историю
-    // Добавляем новые элементы для каждой транзакции
+
     data.forEach(transaction => {
-      console.log(transaction);
-      const template = document.getElementById('note-template').content.cloneNode(true);
-      template.querySelector('.note_title').textContent = transaction.description;
-      template.querySelector('.note_cost').textContent = `${transaction.amount} ₽`;
-      historyContainer.appendChild(template);
+        const template = document.getElementById('note-template').content.cloneNode(true);
+        template.querySelector('.note_title').textContent = transaction.description;
+        template.querySelector('.note_cost').textContent = `${transaction.amount} ₽`;
+        historyContainer.appendChild(template);
     });
-  }
+
+    // Анимация
+    historyContainer.classList.add('updated');
+    setTimeout(() => historyContainer.classList.remove('updated'), 300);
+}
 
 
 
@@ -123,18 +142,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Функция для отправки новой транзакции на сервер
   async function addTransaction(userId, transaction) {
-      const response = await fetch(`/api/transactions/${userId}/`, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(transaction)
-      });
+    try {
+        const response = await fetch(`/api/transactions/${userId}/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(transaction)
+        });
 
-      const data = await response.json();
-      window.location.href = "/"; // ПРИДУМАТЬ ДИНАМИЧЕСКОЕ ОБНОВЛЕНИЕ А НЕ ЭЬА БЛЯДОТА
-      updateTransactionHistory(data);
-      console.log(data);
+        if (!response.ok) {
+            throw new Error("Ошибка при добавлении транзакции");
+        }
+
+        const data = await response.json();
+
+        // Обновляем данные на странице
+        fetchTransactions(userId); // Заново получаем и обновляем данные
+
+        console.log("Транзакция успешно добавлена:", data);
+    } catch (error) {
+        console.error("Ошибка:", error);
+    }
   }
 });
 
