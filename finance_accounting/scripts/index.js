@@ -63,7 +63,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   async function fetchTransactions(userId) {
     const response = await fetch(`/api/transactions/${userId}/`);
-    const data = await response.json();
+    let data = [];
+    if (response.ok) {
+      data = await response.json();
+    }
     updateTransactionInfo(data);
     updateTransactionHistory(data);
   }
@@ -83,15 +86,13 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateTransactionHistory(data) {
     const historyContainer = document.querySelector('.history_note__fieldset');
     historyContainer.innerHTML = ''; // Очищаем старую историю
-    console.log(typeof(data));
-    console.log(transaction);
-    console.log(Array.isArray(data));
     // Добавляем новые элементы для каждой транзакции
     data.forEach(transaction => {
-        const template = document.getElementById('.note-template').content.cloneNode(true);
-        template.querySelector('.note_title').textContent = transaction.description;
-        template.querySelector('.note_cost').textContent = `${transaction.amount} ₽`;
-        historyContainer.appendChild(template);
+      console.log(transaction);
+      const template = document.getElementById('note-template').content.cloneNode(true);
+      template.querySelector('.note_title').textContent = transaction.description;
+      template.querySelector('.note_cost').textContent = `${transaction.amount} ₽`;
+      historyContainer.appendChild(template);
     });
   }
 
