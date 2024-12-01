@@ -232,6 +232,48 @@
 }
 ```
 
+### 8. **PUT /change_user/{user_id}**
+**Описание:** Обновление данных пользователя.
+
+**Параметры пути:**
+- `user_id` (str): Идентификатор пользователя.
+
+**Тело запроса: (поля опциональные)**
+```json
+{
+  "email": "test@test.test",
+  "name": "John Doe",
+  "password": "password123",
+  "old_password": "old_password"
+}
+```
+
+**Ответ:**
+- **200 OK**
+```json
+{
+  "message": "User updated successfully"
+}
+```
+- **404 Not Found**
+```json
+{
+  "detail": "User not found"
+}
+```
+- **400 Bad Request**
+```json
+{
+  "detail": "Email already registered"
+}
+```
+- **400 Bad Request**
+```json
+{
+  "detail": "Incorrect old password"
+}
+```
+
 ---
 
 ## Структура данных
