@@ -1,5 +1,12 @@
+.popup_closed {
+    display: none;
+}
+
+.popup_opened {
+    display: flex;
+}
+
 .popup {
-    display: none; /* отвечает за рендер, ставить в flex когда нужно отрендерить */
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, .75);

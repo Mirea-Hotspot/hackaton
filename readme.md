@@ -2,7 +2,7 @@
 
 ## Базовый URL
 Все эндпоинты доступны по базовому адресу:  
-`http://localhost:8000`
+`http://localhost/api`
 
 ---
 
@@ -196,6 +196,39 @@
 ```json
 {
   "detail": "No transactions found for this user"
+}
+```
+
+### 7. **PUT /transactions/{user_id}/{transaction_id}/**
+**Описание:** Обновление транзакции пользователя.
+
+**Параметры пути:**
+- `user_id` (str): Идентификатор пользователя.
+- `transaction_id` (int): Идентификатор транзакции.
+
+**Тело запроса: (поля опциональные)**
+```json
+{
+  "date": "2024-11-29",
+  "type": "income",
+  "category": "Salary",
+  "place": "Office",
+  "amount": 1000.00,
+  "description": "Salary for November"
+}
+```
+
+**Ответ:**
+- **200 OK**
+```json
+{
+  "id": 1,
+  "date": "2024-11-29",
+  "type": "income",
+  "category": "Salary",
+  "place": "Office",
+  "amount": 1000.00,
+  "description": "Salary for November"
 }
 ```
 
