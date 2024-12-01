@@ -75,7 +75,7 @@
 						<button type="button" name="expense" class="form-summ__choose-button"></button>
 					</div>
 
-					<input type="number" step="100" name="transaction-summ" id="ammount-of-money" placeholder="100 &#x20bd;" class="form__item form__item-summ">
+					<input type="number" step="100" name="transaction-summ" id="ammount-of-money" placeholder="100 &#x20bd;" class="form__item form__item-summ" required>
 				</div>
 
 				<div class="new-transaction-data__form form-date">
@@ -83,14 +83,14 @@
 
 					<!-- todo: ежедневно обновляющаяся плейсхолдер дата (js) -->
 					<!-- todo: красивый значок календаря -->
-					<input type="date" name="transaction-date"  id="date-of-transaction" placeholder="YYYY/MM/DD" class="form__item form__item-date">
+					<input type="date" name="transaction-date"  id="date-of-transaction" placeholder="YYYY/MM/DD" class="form__item form__item-date" required>
 				</div>
 
 				<div class="new-transaction-data__form form-category">
 					<h2 class="new-transaction-data__title">Категория</h2>
 
 					<!-- todo: красивая дропдаун стрелочка (можно сделать чтобы разворачивалась на 180 при открытии формы) -->
-					<select class="form__item form__item-category" name="transaction-category" id="type-of-transaction">
+					<select class="form__item form__item-category" name="transaction-category" id="type-of-transaction" required>
 						<option value="fastfood">Фастфуд</option>
 						<option value="clothes_shoes">Одежда и обувь</option>
 						<option value="restaurant">Рестораны</option>
@@ -101,7 +101,7 @@
 				<div class="new-transaction-data__form form-note">
 					<h2 class="new-transaction-data__title">Комментарий</h2>
 
-					<input type="text" name="transaction-note" id="note-of-transaction" placeholder="Пометки для быстрого поиска. Например: аванс" class="form__item form__item-note">
+					<input type="text" name="transaction-note" id="note-of-transaction" placeholder="Пометки для быстрого поиска. Например: аванс" class="form__item form__item-note" required>
 				</div>
 
 				<div class="new-transaction-data__form form-place">
