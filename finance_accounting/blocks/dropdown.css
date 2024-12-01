@@ -1,0 +1,82 @@
+.dropdown_closed {
+    display: none;
+}
+
+.dropdown_opened {
+    display: flex;
+}
+
+.dropdown {
+    margin-top: 44px;
+    font-family: Arial, sans-serif;
+    align-items: flex-start;
+    justify-content: end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.dropdown__content {
+    display: flex;
+    flex-direction: column;
+    background-color: #414141;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    box-sizing: border-box;
+    width: 270px;
+    height: 150px;
+    align-items: center;
+}
+
+.profile__username {
+    margin: 30px 29px 7px 30px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.profile_email {
+    display: flex;
+    align-items: center; /* Ensures vertical alignment of items */
+    height: 16px;
+    margin-bottom: 20px;
+}
+
+.profile_email__icon {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+.profile_email__text {
+    font-size: 16px;
+    color: #b4b4b4;
+    /* Remove height and padding-bottom to prevent misalignment */
+}
+
+.manage_profile {
+    display: flex;
+    width: 210px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.manage_profile__button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.manage_profile__button[name="edit"] {
+    background-image: url('../images/edit_profile.svg');
+}
+
+.manage_profile__button[name="logout"] {
+    background-image: url('../images/logout_profile.svg');
+}

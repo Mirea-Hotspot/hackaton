@@ -6,6 +6,7 @@
     <title>GOOIIIIDAAAAA</title>
     <link rel="stylesheet" href="blocks/index.css">
     <link rel="stylesheet" href="blocks/popup.css">
+    <link rel="stylesheet" href="blocks/dropdown.css">
 </head>
 <body>
 	<header class="header">
@@ -60,6 +61,7 @@
 				</div>
 			</div>
 		</div>
+
     </main>
 
 	<div class="popup popup_type_new_transaction popup_closed">
@@ -123,6 +125,24 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="dropdown dropdown_type_profile_page dropdown_closed">
+		<div class="dropdown__content dropdown__content_profile" id="profileDropdown">
+			<h2 class="profile__username">Имя Пользователя</h2>
+
+			<div class="profile_email">
+				<img class="profile_email__icon" src="./images/Mail.svg" alt="email icon">
+
+				<p class="profile_email__text">address@mail.com</p>
+			</div>
+			
+			<div class="manage_profile">
+				<button name="edit" id="edit" class="manage_profile__button"></button>
+				<button name="logout" id="logout" class="manage_profile__button"></button>
+			</div>
+		</div>
+	</div>
+
 	<template id="note-template">
 		<div class="history_note">
 			<img class="category_icon" src="" alt="">
