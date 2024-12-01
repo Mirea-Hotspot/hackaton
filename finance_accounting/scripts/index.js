@@ -9,6 +9,7 @@ document.querySelector(".header_username").textContent = user.name;
 const noteTemplate = document.querySelector('#note-template').content;
 
 const popup = document.querySelector('.popup');
+const popupdrop = document.querySelector('.dropdown_type_profile_page');
 
 const openPopupButton = document.querySelector('.add_note');
 

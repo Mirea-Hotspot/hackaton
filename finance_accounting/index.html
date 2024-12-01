@@ -143,6 +143,39 @@
 		</div>
 	</div>
 
+	<div class="popup popup_type_edit_profile popup_closed">
+		<div class="popup__content popup__content_edit_profile" id="editProfileForm">
+			<h1 class="popup__title">Изменить<br>Профиль</h1>
+			
+			<div class="popup__edit-profile-data">
+				<div class="edit-profile-data__form form-user_name">
+					<h2 class="edit-profile-data__title">Изменить имя профиля на</h2>
+					<input type="text" name="user_name" id="user_name" placeholder="Имя Пользователя" class="form__item form__item-user_name" required>
+				</div>
+				<div class="edit-profile-data__form form-email">
+					<h2 class="edit-profile-data__title">Изменить email профиля на</h2>
+					<input type="text" name="user_email" id="user_email" placeholder="address@mail.com" class="form__item form__item-user_email" required>
+				</div>
+				<div class="edit-profile-data__form form-current_password">
+					<h2 class="edit-profile-data__title">Введите старый пароль</h2>
+					<input type="text" name="user_current_password" id="user_current_password" placeholder="*******" class="form__item form__item-user_current_password" required>
+				</div>
+				<div class="edit-profile-data__form form-new_password">
+					<h2 class="edit-profile-data__title">Введите новый пароль</h2>
+					<input type="text" name="user_new_password" id="user_new_password" placeholder="пароль" class="form__item form__item-user_new_password" required>
+				</div>
+				<div class="edit-profile-data__form form-confirm_password">
+					<h2 class="edit-profile-data__title">Подтвердите новый пароль</h2>
+					<input type="text" name="user_confirm_password" id="user_confirm_password" placeholder="пароль" class="form__item form__item-user_confirm_password" required>
+				</div>
+			</div>
+			<div class="popup_close">
+				<button type="button" name="cancel" class="popup_close__buton">Отмена</button>
+				<button type="submit" name="add" class="popup_close__buton">Сохранить</button>
+			</div>
+		</div>
+	</div>
+
 	<template id="note-template">
 		<div class="history_note">
 			<img class="category_icon" src="" alt="">
