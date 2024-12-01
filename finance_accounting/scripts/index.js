@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! функция которая получает новые данные 
 //function updatedDataUsr{};
 
-updateUser(userId, updatedDataUsr);
+//updateUser(userId, updatedDataUsr);
 
 
 async function editTransaction(userId, transactionId, updatedData) {
