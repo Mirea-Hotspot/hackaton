@@ -7,6 +7,7 @@
 }
 
 .popup {
+    font-family: Arial, sans-serif;
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, .75);
